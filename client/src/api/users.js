@@ -6,7 +6,7 @@ export const Registeruser = async(payload)=>{
     // console.log("hi",payload);
 try{
    
-    const response = await axiosInstance.post("http://localhost:5000/users/register",payload);
+    const response = await axiosInstance.post("/users/register",payload);
     return response.data;
 
 }
@@ -20,7 +20,7 @@ return error.message;
 export const Loginuser = async(payload)=>{
 
     try{
-        const response = await axiosInstance.post("http://localhost:5000/users/login",payload);
+        const response = await axiosInstance.post("/users/login",payload);
         return response.data;
     
     }
@@ -34,7 +34,7 @@ export const Loginuser = async(payload)=>{
     export const GetCurrentuser = async()=>{
 
         try{
-            const response = await axiosInstance.get("http://localhost:5000/users/get-current-user");
+            const response = await axiosInstance.get("/users/get-current-user");
             
             return response.data;
         
