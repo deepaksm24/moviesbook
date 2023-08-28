@@ -5,7 +5,7 @@ import { axiosInstance } from ".";
 export const Addtheatre = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/add-theatres",
+      "/theatres/add-theatres",
       payload
     );
     return response.data;
@@ -18,7 +18,7 @@ export const Addtheatre = async (payload) => {
 export const GetAlltheatres = async () => {
   try {
     const response = await axiosInstance.get(
-      "http://localhost:5000/theatres/get-all-theatres"
+      "/theatres/get-all-theatres"
     );
     return response.data;
   } catch (error) {
@@ -29,7 +29,7 @@ export const GetAlltheatres = async () => {
 export const GetAlltheatresByOwner = async (request) => {
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/get-all-theatres-by-owner",
+      "/theatres/get-all-theatres-by-owner",
       request
     );
     return response.data;
@@ -42,7 +42,7 @@ export const GetAlltheatresByOwner = async (request) => {
 export const updatetheatre = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/update-theatre",
+      "/theatres/update-theatre",
       payload
     );
     return response.data;
@@ -56,7 +56,7 @@ export const updatetheatre = async (payload) => {
 export const deleteTheatre = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/delete-theatre",
+      "/theatres/delete-theatre",
       payload
     );
     return response.data;
@@ -70,7 +70,7 @@ export const AddShow = async (payload) => {
   
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/add-show",
+      "/theatres/add-show",
       payload
     );
     return response.data;
@@ -83,7 +83,7 @@ export const AddShow = async (payload) => {
 export const GetAllShowsbyTheatre = async (request) => {
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/get-all-shows-by-theatre",
+      "/theatres/get-all-shows-by-theatre",
       request
     );
     return response.data;
@@ -96,7 +96,7 @@ export const GetAllShowsbyTheatre = async (request) => {
 export const DeleteShow = async (payload) =>{
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/delete-show",
+      "/theatres/delete-show",
       payload
     );
     return response.data;
@@ -110,7 +110,7 @@ export const DeleteShow = async (payload) =>{
 export const GetAllTheatresbyMovie = async (payload) =>{
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/get-all-theatres-by-movie",
+      "/theatres/get-all-theatres-by-movie",
       payload
     );
     return response.data;
@@ -124,7 +124,7 @@ export const GetShowsById = async (payload) =>{
   
   try {
     const response = await axiosInstance.post(
-      "http://localhost:5000/theatres/get-shows-by-id",
+      "/theatres/get-shows-by-id",
       payload
     );
     return response.data;

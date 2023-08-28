@@ -6,7 +6,7 @@ export const Addmovie = async(payload)=>{
     
 try{
    
-    const response = await axiosInstance.post("http://localhost:5000/movies/add-movie",payload);
+    const response = await axiosInstance.post("/movies/add-movie",payload);
     return response.data;
 }
 catch(error){
@@ -20,7 +20,7 @@ export const GetAllmovie = async()=>{
     
 try{
    
-    const response = await axiosInstance.get("http://localhost:5000/movies/get-all-movies");
+    const response = await axiosInstance.get("/movies/get-all-movies");
     return response.data;
 }
 catch(error){
@@ -34,7 +34,7 @@ export const updateMovie = async(payload)=>{
     
     try{
        
-        const response = await axiosInstance.post("http://localhost:5000/movies/update-movie",payload);
+        const response = await axiosInstance.post("/movies/update-movie",payload);
         return response.data;
     }
     catch(error){
@@ -49,7 +49,7 @@ export const updateMovie = async(payload)=>{
     
         try{
            
-            const response = await axiosInstance.post("http://localhost:5000/movies/delete-movie",payload);
+            const response = await axiosInstance.post("/movies/delete-movie",payload);
             return response.data;
         }
         catch(error){
@@ -64,7 +64,7 @@ export const updateMovie = async(payload)=>{
     
             try{
                
-                const response = await axiosInstance.get(`http://localhost:5000/movies/get-movie-by-id/${id}`);
+                const response = await axiosInstance.get(`/movies/get-movie-by-id/${id}`);
                 return response.data;
             }
             catch(error){
