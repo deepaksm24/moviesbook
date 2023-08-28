@@ -17,7 +17,7 @@ const bookingsRoute = require("./routes/bookingsroute");
 //   optionSuccessStatus: 200,
 // };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 
