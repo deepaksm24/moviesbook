@@ -43,29 +43,29 @@ router.post("/make-payment", authMiddleware, async (req, res) => {
 });
 
 //book-show
-router.post("/book-show", authMiddleware, async (req, res) => {
-  try {
-    const newBooking = new Booking(req.body);
-    await newBooking.save();
+// router.post("/book-show", authMiddleware, async (req, res) => {
+//   try {
+//     const newBooking = new Booking(req.body);
+//     await newBooking.save();
 
-    // update seats
-    const show = await Show.findById(req.body.show);
+//     // update seats
+//     const show = await Show.findById(req.body.show);
 
-    await Show.findByIdAndUpdate(req.body.show, {
-      bookedseats: [...show.bookedseats, ...req.body.seats],
-    });
-    res.send({
-      success: true,
-      message: "Show Booked succesfully",
-      data: newBooking,
-    });
-  } catch (error) {
-    res.send({
-      success: true,
-      message: error.message,
-    });
-  }
-});
+//     await Show.findByIdAndUpdate(req.body.show, {
+//       bookedseats: [...show.bookedseats, ...req.body.seats],
+//     });
+//     res.send({
+//       success: true,
+//       message: "Show Booked succesfully",
+//       data: newBooking,
+//     });
+//   } catch (error) {
+//     res.send({
+//       success: true,
+//       message: error.message,
+//     });
+//   }
+// });
 
 //get all booking by user
 

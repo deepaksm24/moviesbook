@@ -8,6 +8,7 @@ const usersRoute = require("./routes/usersRoute");
 const moviesRoute = require("./routes/moviesroute");
 const theatresRoute = require("./routes/theatresroute");
 const bookingsRoute = require("./routes/bookingsroute");
+const bookingsRoute2 = require("./routes/bookingroute2");
 
 //to enable proxy
 // const cors = require("cors");
@@ -28,6 +29,7 @@ app.use("/movies", moviesRoute);
 app.use("/theatres", theatresRoute);
 
 app.use("/movie/:id/book-show/bookings", bookingsRoute);
+app.use("/movie/:id/book-show/movie/:id2/book-show/bookings", bookingsRoute2);
 
 const port = process.env.PORT || 5000;
 
