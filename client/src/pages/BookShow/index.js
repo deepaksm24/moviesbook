@@ -29,11 +29,14 @@ function BookShow() {
       } else {
         // message.error(response.message);
         dispatch(Hideloading());
+        book("123");
       }
+      book("123");
       dispatch(Hideloading());
     } catch (error) {
+      book("123");
       dispatch(Hideloading());
-      message.error("Payment Failed");
+     
     }
   };
 
