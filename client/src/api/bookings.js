@@ -19,7 +19,7 @@ export const makePayment = async (token, amount) => {
 export const BookShowTickets = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "bookings/book-show",
+      "movie/1234567/book-show/bookings/book-show",
       payload
     );
     return response.data;
@@ -31,7 +31,7 @@ export const BookShowTickets = async (payload) => {
 export const GetBookingsofUser = async () => {
   try {
     const response = await axiosInstance.get(
-      "bookings/get-bookings"
+      "movie/1234567/book-show/bookings/get-bookings"
     );
     return response.data;
   } catch (error) {
