@@ -27,7 +27,7 @@ app.use("/movies", moviesRoute);
 
 app.use("/theatres", theatresRoute);
 
-app.use("/bookings", bookingsRoute);
+app.use("/movie/:id/book-show/bookings", bookingsRoute);
 
 const port = process.env.PORT || 5000;
 

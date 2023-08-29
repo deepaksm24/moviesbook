@@ -5,7 +5,7 @@ import { Hideloading, ShowLoading } from "../../redux/loadersSlice";
 import { Col, Row, message } from "antd";
 import { GetShowsById } from "../../api/theatres";
 import moment from "moment";
-// import StripeCheckout from "react-stripe-checkout";
+import StripeCheckout from "react-stripe-checkout";
 import { BookShowTickets, makePayment } from "../../api/bookings";
 
 function BookShow() {
@@ -16,25 +16,28 @@ function BookShow() {
   const params = useParams();
   const [selectedseats, setSelectedseats] = React.useState([]);
 
-  // const onToken = async () => {
-  //   try {
-  //     dispatch(ShowLoading());
-  //     const response = await makePayment();
-
-  //     if (response.success) {
-  //       message.success("Payment Success");
-  //       book("123");
-  //     } else {
-  //       // message.error(response.message);
-  //       dispatch(Hideloading());
-  //     }
-
-  //     dispatch(Hideloading());
-  //   } catch (error) {
-  //     book("123");
-  //     dispatch(Hideloading());
-  //   }
-  // };
+  const onToken = async () => {
+    try {
+      dispatch(ShowLoading());
+      const response = await makePayment();
+      
+      if (response.success) {
+        message.success("Payment Success");
+        book("123");
+      } else {
+        // message.error(response.message);
+        dispatch(Hideloading());
+        
+      }
+      
+      dispatch(Hideloading());
+    } catch (error) {
+      book("123");
+      dispatch(Hideloading());
+     
+      
+    }
+  };
 
   const book = async (transactionId) => {
     try {
@@ -148,14 +151,15 @@ function BookShow() {
         <div className="d-flex justify-content-center">{getSeats()}</div>
         <div className="w100 d-flex justify-content-center mt-2 mb-5">
           {selectedseats.length > 0 && (
-            <button
-              className="btn btn-info"
-              onClick={() => {
-                book("123");
-              }}
+            <StripeCheckout
+              // currency="INR"
+              className=""
+              token={onToken}
+              amount={selectedseats.length * show.ticketprice * 100}
+              stripeKey="pk_test_51NjrtxSAknDNhCmWShNdt0Phm1TqtLj7fl8CUqULWolfYTxwbZ6FExNXNZn0TTQ5BkQbJiBbHscxBjyD6OHLmedq00nWD0zvUE"
             >
-              Book Now
-            </button>
+              <button className="btn btn-info">Book Now</button>
+            </StripeCheckout>
           )}
         </div>
       </div>
