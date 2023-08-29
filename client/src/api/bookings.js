@@ -19,7 +19,7 @@ export const makePayment = async (token, amount) => {
 export const BookShowTickets = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "movie/1234567/book-show/bookings/book-show",
+      "/bookings/book-show",
       payload
     );
     return response.data;
