@@ -5,7 +5,7 @@ import { axiosInstance } from ".";
 export const makePayment = async (token, amount) => {
   try {
     const response = await axiosInstance.post(
-      "/make-payment",
+      "bookings/make-payment",
       {
         token,
         amount,
@@ -19,7 +19,7 @@ export const makePayment = async (token, amount) => {
 export const BookShowTickets = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/book-show",
+      "bookings/book-show",
       payload
     );
     return response.data;
@@ -31,7 +31,7 @@ export const BookShowTickets = async (payload) => {
 export const GetBookingsofUser = async () => {
   try {
     const response = await axiosInstance.get(
-      "/get-bookings"
+      "bookings/get-bookings"
     );
     return response.data;
   } catch (error) {
