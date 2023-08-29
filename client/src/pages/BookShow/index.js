@@ -16,13 +16,11 @@ function BookShow() {
   const params = useParams();
   const [selectedseats, setSelectedseats] = React.useState([]);
 
-  const onToken = async (token) => {
+  const onToken = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await makePayment(
-        token,
-        selectedseats.length * show.ticketprice * 100
-      );
+      const response = await makePayment();
+      
       if (response.success) {
         message.success("Payment Success");
         book("123");
